@@ -23,6 +23,7 @@
     <title>Weather</title>
 </head>
 <body>
+<h3>Погода на текущий момент</h3>
 <form action="/getWeather" method="get">
         <div class="col-4">
             <div class="form-group mb-2">
@@ -59,6 +60,25 @@
             </table>
         </c:if>
     </div>
+    <h3>Обмен валют</h3>
+    <form action="/getRates" method="get">
+        <%--<select name="bank">--%>
+        <%--<option>Ощадбанк</option>--%>
+        <%--<option>ПриватБанк</option>--%>
+        <%--</select>--%>
+        <%--<input class=" btn btn-outline-primary btn-sm mb-2" type="submit" value="Enter bank">--%>
+            <form action="/getRates" method="get">
+                <div class="col-4">
+                    <div class="form-group mb-2">
+                        <label for="bank" class="col-form-label-sm">Bank:</label>
+                        <input type="text" class="form-control col-form-label-sm" id="bank" name="bank"
+                               placeholder="Enter bank">
+                    </div>
+                </div>
+                <input class=" btn btn-outline-primary btn-sm mb-2" type="submit" value="Enter Bank">
+            </form>
+    </form>
+    ${exchange.nameBank}
 </div>
 </body>
 </html>

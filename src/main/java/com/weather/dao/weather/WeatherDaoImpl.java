@@ -47,11 +47,6 @@ public class WeatherDaoImpl implements WeatherDao {
             weather.setIcon((String) obj.get("icon"));
             weather.setMain((String) obj.get("main"));
         }
-//        return "City: " + getName() + "\n" +
-//                "Temperature: " + getTemp() + "C" + "\n" +
-//                "Humidity: " + getHumidity() + "%" + "\n" +
-//                "Main: "+getMain()+"\n"+
-//                "http://openweathermap.org/img/w/" + getIcon() + ".png";
         return weather;
     }
 }
