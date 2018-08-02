@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Bot" />
+        <module name="BotTelegramWeather" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Bot" target="1.7" />
+      <module name="BotTelegramWeather" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
