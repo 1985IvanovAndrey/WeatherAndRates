@@ -57,7 +57,7 @@
             </table>
         </c:if>
     </div>
-    <h3>Обмен валют</h3>
+    <h3>Курсы валют</h3>
     <form action="/getRates" method="get">
         <select name="bank">
             <option>Ощадбанк</option>
