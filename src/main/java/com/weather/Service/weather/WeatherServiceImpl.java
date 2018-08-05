@@ -1,4 +1,4 @@
-package com.weather.dao.weather;
+package com.weather.Service.weather;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.util.Scanner;
 @NoArgsConstructor
 @AllArgsConstructor
 @Repository
-public class WeatherDaoImpl implements WeatherDao {
+public class WeatherServiceImpl implements WeatherService {
 
     private String name;
     private Double temp;
@@ -25,8 +25,8 @@ public class WeatherDaoImpl implements WeatherDao {
     private String main;
 
     //259ed2e03585b4c9c3b924564ecbeddd
-    public WeatherDaoImpl getWeather(String message) throws IOException {
-        WeatherDaoImpl weather = new WeatherDaoImpl();
+    public WeatherServiceImpl getWeather(String message) throws IOException {
+        WeatherServiceImpl weather = new WeatherServiceImpl();
         URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + message + "&units=metric&appid=259ed2e03585b4c9c3b924564ecbeddd");
 
         Scanner in = new Scanner((InputStream) url.getContent());
@@ -34,10 +34,8 @@ public class WeatherDaoImpl implements WeatherDao {
         while (in.hasNext()) {
             result += in.nextLine();
         }
-
         JSONObject object = new JSONObject(result);
         weather.setName(object.getString("name"));
-
         JSONObject main = object.getJSONObject("main");
         weather.setTemp(main.getDouble("temp"));
         weather.setHumidity(main.getDouble("humidity"));

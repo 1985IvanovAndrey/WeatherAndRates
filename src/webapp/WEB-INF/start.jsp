@@ -23,16 +23,16 @@
     <title>Weather</title>
 </head>
 <body>
-<h3>Погода на текущий момент</h3>
 <form action="/getWeather" method="get">
-        <div class="col-4">
-            <div class="form-group mb-2">
-                <label for="city" class="col-form-label-sm">City:</label>
-                <input type="text" class="form-control col-form-label-sm" id="city" name="city"
-                       placeholder="Enter city">
-            </div>
+    <div class="col-4">
+        <h3>Погода на текущий момент</h3>
+        <div class="form-group mb-2">
+            <label for="city" class="col-form-label-sm">City:</label>
+            <input type="text" class="form-control col-form-label-sm" id="city" name="city"
+                   placeholder="Enter city">
         </div>
-        <input class=" btn btn-outline-primary btn-sm mb-2" type="submit" value="Enter City">
+    <input class=" btn btn-outline-primary btn-sm mb-2" type="submit" value="Enter City">
+    </div>
 </form>
 <div class="col-6">
     <div class="table-responsive-sm">
@@ -47,38 +47,77 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <%--<c:forEach items="${studentList}" var="student">--%>
                 <tr align="center">
                     <td>${weat.name}</td>
-                    <td>${weat.temp}C</td>
+                    <td>${weat.temp}°C</td>
                     <td>${weat.humidity}%</td>
                     <td>${weat.main}</td>
-                        <%--<td><a href="<c:url value='/remove/${student.id}'/>">Delete</a></td>--%>
                 </tr>
-                    <%--</c:forEach>--%>
                 </tbody>
             </table>
         </c:if>
     </div>
     <h3>Обмен валют</h3>
     <form action="/getRates" method="get">
-        <%--<select name="bank">--%>
-        <%--<option>Ощадбанк</option>--%>
-        <%--<option>ПриватБанк</option>--%>
-        <%--</select>--%>
-        <%--<input class=" btn btn-outline-primary btn-sm mb-2" type="submit" value="Enter bank">--%>
-            <form action="/getRates" method="get">
-                <div class="col-4">
-                    <div class="form-group mb-2">
-                        <label for="bank" class="col-form-label-sm">Bank:</label>
-                        <input type="text" class="form-control col-form-label-sm" id="bank" name="bank"
-                               placeholder="Enter bank">
-                    </div>
-                </div>
-                <input class=" btn btn-outline-primary btn-sm mb-2" type="submit" value="Enter Bank">
-            </form>
+        <select name="bank">
+            <option>Ощадбанк</option>
+            <option>ПриватБанк</option>
+            <option>Аркада</option>
+            <option>Кредобанк</option>
+            <option>Кредитвест банк</option>
+            <option>Сбербанк России</option>
+            <option>Пиреус Банк МКБ</option>
+            <option>ПУМБ</option>
+            <option>International Invest</option>
+            <option>ВТБ</option>
+            <option>Глобус</option>
+            <option>Коминвестбанк</option>
+            <option>Альфа-банк</option>
+            <option>Райффайзен Банк Аваль</option>
+            <option>ПриватБанк</option>
+            <option>Укрэксимбанк</option>
+            <option>БМ Банк</option>
+            <option>Universal Bank</option>
+            <option>ТАСкомбанк</option>
+            <option>Земельный капитал</option>
+            <option>Credit Agricole</option>
+            <option>Кредит Днепр</option>
+            <option>Marfin</option>
+            <option>Альпари банк</option>
+        </select>
+        <br>
+        <br>
+        <select name="currency">
+            <option>usd</option>
+            <option>eur</option>
+            <option>rub</option>
+        </select>
+        <br>
+        <br>
+        <input class=" btn btn-outline-primary btn-sm mb-2" type="submit" value="Get Rates">
     </form>
-    ${exchange.nameBank}
+    <div class="table-responsive-sm">
+        <c:if test="${!empty exc}">
+            <table class="table table-sm table-bordered">
+                <thead>
+                <tr align="center" class="table-active">
+                    <th>Bank</th>
+                    <th>Currency</th>
+                    <th>Buy</th>
+                    <th>Sale</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr align="center">
+                    <td>${exc.nameBank}</td>
+                    <td>${exc.currency}</td>
+                    <td>${exc.buy} UAH</td>
+                    <td>${exc.sale} UAH</td>
+                </tr>
+                </tbody>
+            </table>
+        </c:if>
+    </div>
 </div>
 </body>
 </html>
